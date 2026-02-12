@@ -4,7 +4,7 @@
 </script>
 
  <li class="product-card">
-    <a href="products/{product.id}/">
+    <a href="/products/{product.id}/">
         <img
         src="{product.images.primaryLarge}"
         alt="{product.name}"
