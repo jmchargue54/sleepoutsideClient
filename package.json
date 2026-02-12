@@ -10,10 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/svelte": "^7.2.5",
+    "@eslint/js": "^9.25.1",
     "astro": "^5.16.12",
     "eslint": "^9.39.2",
-    "globals": "^17.0.0",
     "eslint-config-prettier": "^10.1.1",
-    "@eslint/js": "^9.25.1"
+    "globals": "^17.0.0",
+    "svelte": "^5.50.2",
+    "typescript": "^5.9.3"
   }
 }

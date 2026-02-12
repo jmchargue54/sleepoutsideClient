@@ -10,16 +10,15 @@ function convertToJson(res:Response) {
   }
 }
 
-export function getProducts(category:string) {
-  console.log ("baseURL:", baseURL);
-  return fetch(baseURL + `product-list/index.html?category=${category}`)
-    .then(convertToJson)
-    .then((data) => data);
+export async function getProducts(category = "tents") {
+  const res = await fetch(baseURL + `products?category=${category}`);
+  const data = await convertToJson(res);
+  return data;
 }
 
 export async function findProductById(id:string) {
-  const response = await fetch(baseURL + `product-list/index.html?${id}`);
-  const products = await convertToJson(response) as Product;
+  const response = await fetch(baseURL + `products/${id}`);
+  const products = await convertToJson(response);
   console.log(products);
   return products;
 }
