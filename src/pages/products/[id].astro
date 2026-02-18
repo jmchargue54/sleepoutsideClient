@@ -17,7 +17,7 @@ type Props = CollectionEntry<"products">;
 const product = Astro.props;
 // console.log(product);
 
-const imageUrl = "../../" + product.data.image;
+const imageUrl = product.data.images.primaryLarge;
 const title = product.data.name;
 ---
 <Layout title={title}>
