@@ -3,42 +3,44 @@ import Layout from '../layouts/Layout.astro';
 const title = "Home";
 ---
 <Layout title={title}>
-<script src = "../js/main.ts"></script>
-	<div class="hero">
-        <img
-          src="/images/banner-sm.jpg"
-          srcset="images/banner-sm.jpg 500w, images/banner.jpg"
-          alt="image of a high mountain lake"
-        />
-        <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-          <div>Sleep<span class="highlight">Outside</span></div>
-        </div>
-      </div>
-      <section class="mission">
-        <p>We spend too much time these days indoors...sitting usually.</p>
-        <p>No wonder we are a mess!</p>
-        <p>
-          What we really need is to get outside...in fact SLEEP outside. Our
-          mission is to provide you with everything you need to do this
-          comfortably at an affordable price.
-        </p>
-      <section class="gallery">
-        <a href="product-list/index.html?category=tents"><img src="/images/svg/tent_icon.svg" alt="Tent Icon from Noun Project: Mustofa Bayu"> </a>
-        <a href="product-list/index.html?category=sleeping-bags"><img src="/images/svg/noun_Sleeping_Bag.svg" alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu"> </a>        
-        <a href="product-list/index.html?category=backpacks"><img src="/images/svg/noun_Backpack.svg" alt="Backpack Icon from Noun Project: Mustofa Bayu"> </a>
-        <a href="product-list/index.html?category=hammocks"><img src="/images/svg/noun_Hammock.svg" alt="Hammock Icon from Noun Project: Paul Richard"> </a>        
-      </section> 
+  <script src = "../js/main.ts"></script>
+  <div class="hero">
+    <img
+      src="/images/banner-sm.jpg"
+      srcset="images/banner-sm.jpg 500w, images/banner.jpg"
+      alt="image of a high mountain lake"
+    />
+    <div class="logo logo--square">
+      <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+      <div>Sleep<span class="highlight">Outside</span></div>
+    </div>
+  </div>
+  <section class="mission">
+    <p>We spend too much time these days indoors...sitting usually.</p>
+    <p>No wonder we are a mess!</p>
+    <p>
+      What we really need is to get outside...in fact SLEEP outside. Our
+      mission is to provide you with everything you need to do this
+      comfortably at an affordable price.
+    </p>
+  </section>
+  <section class="gallery">
+    <a href="product-list/index.html?category=tents"><img src="/images/svg/tent_icon.svg" alt="Tent Icon from Noun Project: Mustofa Bayu"> Tents</a>
+    <a href="product-list/index.html?category=sleeping-bags"><img src="/images/svg/noun_Sleeping_Bag.svg" alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu"> Sleeping Bags</a>        
+    <a href="product-list/index.html?category=backpacks"><img src="/images/svg/noun_Backpack.svg" alt="Backpack Icon from Noun Project: Mustofa Bayu"> Backsets</a>
+    <a href="product-list/index.html?category=hammocks"><img src="/images/svg/noun_Hammock.svg" alt="Hammock Icon from Noun Project: Paul Richard"> Hammocks</a>        
+  </section> 
 </Layout>
 
 <style>
   .gallery{
     display: flex;
     align-items: center;
-    margin: 0 -200px;
+    margin: 0 -200px 20px -200px;
+    text-align: center;
   }
   .gallery a{
     width: 75%;
     padding: 10px;
-  } 
+  }
 </style>

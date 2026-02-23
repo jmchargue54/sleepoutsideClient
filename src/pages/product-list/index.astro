@@ -1,13 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ProductList from "../../components/ProductList.svelte";
-import { getParam } from "../../js/utils.mts";
-
-let category = Astro.url.searchParams.get("category");
-    
 ---
 <Layout title="Products">
     <section class="products">
-        <ProductList {category} client:load />
+        <ProductList client:load />
     </section>
 </Layout>

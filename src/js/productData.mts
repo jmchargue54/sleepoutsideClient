@@ -4,7 +4,7 @@ function convertToJson(res:Response) {
   if (res.ok) {
     return res.json();
   } else {
-    throw new Error("Bad Response");
+    throw new Error('Bad Response');
   }
 }
 export function getData(category:string) {
@@ -22,6 +22,6 @@ export async function getProducts(category:string) {
 export async function findProductById(id:string) {
   const response = await fetch(baseURL + `products/${id}`);
   const products = await convertToJson(response);
-  console.log(products);
+  // console.log(products);
   return products;
 }
