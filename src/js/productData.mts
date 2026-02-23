@@ -1,5 +1,3 @@
-import type {Product} from "./types.mts"
-
 const baseURL = import.meta.env.PUBLIC_SERVER_URL;
 
 function convertToJson(res:Response) {
@@ -9,8 +7,13 @@ function convertToJson(res:Response) {
     throw new Error("Bad Response");
   }
 }
+export function getData(category:string) {
+  return fetch(`../json/${category}.json`)
+    .then(convertToJson)
+    .then((data) => data);
+}
 
-export async function getProducts(category = "tents") {
+export async function getProducts(category:string) {
   const res = await fetch(baseURL + `products?category=${category}`);
   const data = await convertToJson(res);
   return data;
