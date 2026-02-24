@@ -33,8 +33,10 @@ function cartItemTemplate(item: Product) {
   </a>
   <p class="cart-card__color">${item.colors[0].colorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
+  <img src="/images/bin.png" alt="remove item" class="cart-card__remove" id="remove-${item.id}"/>
   <p class="cart-card__price">$${item.finalPrice}</p>
 </li>`;
+
 
   return newItem;
 }
@@ -47,6 +49,21 @@ function calculateCartTotal(cartItems: Product[]) {
   if (footerEl) footerEl.classList.remove("hide");
 }
 
+function removeCartItem(itemId: string) {
+  let cartItems = getLocalStorage("so-cart") || [];
+  cartItems = cartItems.filter((item: Product) => item.id !== itemId);
+  localStorage.setItem("so-cart", JSON.stringify(cartItems));
+  renderCartContents();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderCartContents();
+});
+
+document.addEventListener("click", (event) => {
+  const target = event.target as HTMLElement;
+  if (target.classList.contains("cart-card__remove")) {
+    const itemId = target.id.replace("remove-", "");
+    removeCartItem(itemId);
+  }
 });
