@@ -186,6 +186,22 @@ button {
   fill: gray;
 }
 
+.cart-footer {
+  position: fixed;
+  text-align: right;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+  background-color: var(--tertiary-color);
+  border-top: 1px solid var(--light-grey);
+  padding: 1em;
+}
+
+.cart-footer.hide {
+  display: none;
+}
+
 /* End cart icon styles */
 
 .mission {

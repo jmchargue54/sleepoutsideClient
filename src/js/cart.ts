@@ -5,16 +5,19 @@ function renderCartContents() {
   if (!localStorage.getItem('so-cart')) {
     localStorage.setItem('so-cart', '[]');
   }
-  const cartItems = getLocalStorage('so-cart') || [];
-  const listEl = document.querySelector('.product-list');
+  const cartItems = getLocalStorage("so-cart") || [];
+  const listEl = document.querySelector(".product-list");
+
   if (cartItems.length === 0) {
     if (listEl) listEl.innerHTML = '<li>Your cart is empty.</li>';
     return;
-  } else {
-    // console.log(cartItems);
-    const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
-    if (listEl) listEl.innerHTML = htmlItems.join('');
   }
+
+  const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
+  if (listEl) listEl.innerHTML = htmlItems.join("");
+
+  calculateCartTotal(cartItems);
+
 }
 
 function cartItemTemplate(item: Product) {
@@ -36,4 +39,14 @@ function cartItemTemplate(item: Product) {
   return newItem;
 }
 
-document.addEventListener('DOMContentLoaded', renderCartContents);
+function calculateCartTotal(cartItems: Product[]) {
+  const total = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
+  const totalEl = document.querySelector(".cart-total");
+  if (totalEl) totalEl.textContent = `Total: $${total.toFixed(2)}`;
+  const footerEl = document.querySelector(".cart-footer");
+  if (footerEl) footerEl.classList.remove("hide");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCartContents();
+});
