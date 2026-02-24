@@ -1,11 +1,11 @@
-import type { Product } from "./types.mts";
-import { setLocalStorage } from "./utils.mts";
-import { findProductById } from "./productData.mts";
+import type { Product } from './types.mts';
+import { setLocalStorage } from './utils.mts';
+import { findProductById } from './productData.mts';
 
 function addProductToCart(product: Product) {
-  const cart = JSON.parse(localStorage.getItem("so-cart") || "[]");
+  const cart = JSON.parse(localStorage.getItem('so-cart') || '[]');
   cart.push(product);
-  setLocalStorage("so-cart", cart);
+  setLocalStorage('so-cart', cart);
 }
 // add to cart button event handler
 async function addToCartHandler(e: Event) {
@@ -18,5 +18,5 @@ async function addToCartHandler(e: Event) {
 
 // add listener to Add to Cart button
 document
-  .getElementById("addToCart")
-  ?.addEventListener("click", addToCartHandler);
+  .getElementById('addToCart')
+  ?.addEventListener('click', addToCartHandler);

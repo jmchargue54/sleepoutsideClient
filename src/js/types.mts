@@ -47,3 +47,11 @@ export interface Brand {
   logoSrc: string;
   name: string;
 }
+
+export interface QueryParams {
+  category?: string;
+  q?: string;
+  limit?: string;
+  offset?: string;
+  fields?: string;
+}
