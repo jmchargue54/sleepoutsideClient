@@ -1,15 +1,15 @@
-import { getLocalStorage } from "./utils.mts";
-import type { Product } from "./types.mts";
+import { getLocalStorage } from './utils.mts';
+import type { Product } from './types.mts';
 
 function renderCartContents() {
-  if (!localStorage.getItem("so-cart")) {
-    localStorage.setItem("so-cart", "[]");
+  if (!localStorage.getItem('so-cart')) {
+    localStorage.setItem('so-cart', '[]');
   }
   const cartItems = getLocalStorage("so-cart") || [];
   const listEl = document.querySelector(".product-list");
 
   if (cartItems.length === 0) {
-    if (listEl) listEl.innerHTML = "<li>Your cart is empty.</li>";
+    if (listEl) listEl.innerHTML = '<li>Your cart is empty.</li>';
     return;
   }
 
