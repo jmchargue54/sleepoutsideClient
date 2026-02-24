@@ -198,6 +198,10 @@ button {
   padding: 1em;
 }
 
+.cart-footer.hide {
+  display: none;
+}
+
 /* End cart icon styles */
 
 .mission {
