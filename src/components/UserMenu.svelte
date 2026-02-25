@@ -49,9 +49,9 @@
   </button>
   
   <nav class="user__menu" class:open={visible}>
-    <a href="#">Login</a>
-    <a href="#">Profile</a>
-    <a href="#">Orders</a>
+    <a href="login/index.html">Login</a>
+    <a href="profile/index.html">Profile</a>
+    <a href="orders/index.html">Orders</a>
   </nav>
 </div>
 
