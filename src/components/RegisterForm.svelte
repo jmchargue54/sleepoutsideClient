@@ -15,8 +15,4 @@
     <button type="submit">Register</button>
 </form>
 
-<<<<<<< HEAD
 <p>Already have an account? <a href="/login/index.html">Login here</a>.</p>
-=======
-<p>Already have an account? <a href="login/index.html">Login here</a>.</p>
->>>>>>> d0aa771 (adding pages to user management)

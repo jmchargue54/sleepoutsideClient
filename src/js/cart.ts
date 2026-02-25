@@ -16,6 +16,12 @@ function renderCartContents() {
     const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
     if (listEl) listEl.innerHTML = htmlItems.join('');
   }
+
+  const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
+  if (listEl) listEl.innerHTML = htmlItems.join('');
+
+  calculateCartTotal(cartItems);
+
 }
 
 function cartItemTemplate(item: Product) {
