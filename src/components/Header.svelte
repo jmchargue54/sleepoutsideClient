@@ -1,5 +1,15 @@
 <script>
-    import UserMenu from "../components/UserMenu.svelte";
+  import UserMenu from "../components/UserMenu.svelte";  
+
+  let counter = 0;
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('so-cart');
+    const cartItems = (JSON.parse(stored)); 
+    let result = [];
+    result.push(cartItems);
+    console.log("Length: ", result.length);
+    counter = result.length;
+  }
 </script>
 
     <header class="divider">
@@ -40,8 +50,12 @@
               <!-- <text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Natalia Woodroffe</text>
             <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
             </svg>
+            <div class="superbase">{counter}</div>
           </a>
         </div>
       </nav>
     </header>
     
+<style>
+  
+</style>

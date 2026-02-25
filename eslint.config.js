@@ -47,6 +47,7 @@ export default defineConfig([
   {
     files: ['**/*.svelte'],
     languageOptions: {
+      globals: globals.browser,
       parserOptions: {
         parser: tsParser,
       },
