@@ -5,8 +5,8 @@ function renderCartContents() {
   if (!localStorage.getItem('so-cart')) {
     localStorage.setItem('so-cart', '[]');
   }
-  const cartItems = getLocalStorage("so-cart") || [];
-  const listEl = document.querySelector(".product-list");
+  const cartItems = getLocalStorage('so-cart') || [];
+  const listEl = document.querySelector('.product-list');
 
   if (cartItems.length === 0) {
     if (listEl) listEl.innerHTML = '<li>Your cart is empty.</li>';
@@ -14,7 +14,7 @@ function renderCartContents() {
   }
 
   const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
-  if (listEl) listEl.innerHTML = htmlItems.join("");
+  if (listEl) listEl.innerHTML = htmlItems.join('');
 
   calculateCartTotal(cartItems);
 
@@ -43,27 +43,27 @@ function cartItemTemplate(item: Product) {
 
 function calculateCartTotal(cartItems: Product[]) {
   const total = cartItems.reduce((sum, item) => sum + item.finalPrice, 0);
-  const totalEl = document.querySelector(".cart-total");
+  const totalEl = document.querySelector('.cart-total');
   if (totalEl) totalEl.textContent = `Total: $${total.toFixed(2)}`;
-  const footerEl = document.querySelector(".cart-footer");
-  if (footerEl) footerEl.classList.remove("hide");
+  const footerEl = document.querySelector('.cart-footer');
+  if (footerEl) footerEl.classList.remove('hide');
 }
 
 function removeCartItem(itemId: string) {
-  let cartItems = getLocalStorage("so-cart") || [];
+  let cartItems = getLocalStorage('so-cart') || [];
   cartItems = cartItems.filter((item: Product) => item.id !== itemId);
-  localStorage.setItem("so-cart", JSON.stringify(cartItems));
+  localStorage.setItem('so-cart', JSON.stringify(cartItems));
   renderCartContents();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   renderCartContents();
 });
 
-document.addEventListener("click", (event) => {
+document.addEventListener('click', (event) => {
   const target = event.target as HTMLElement;
-  if (target.classList.contains("cart-card__remove")) {
-    const itemId = target.id.replace("remove-", "");
+  if (target.classList.contains('cart-card__remove')) {
+    const itemId = target.id.replace('remove-', '');
     removeCartItem(itemId);
   }
 });

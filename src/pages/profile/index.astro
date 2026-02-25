@@ -1,7 +1,10 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
+let user = {
+    name: "John Doe"
+};
 ---
 <Layout title="Profile">
-     <h1>Profile</h1>
+     <h1>Hello, {user.name}</h1>
      <p>This is the profile page. It will show the user's information and their order history.</p>
 </Layout>

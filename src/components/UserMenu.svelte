@@ -49,9 +49,9 @@
   </button>
   
   <nav class="user__menu" class:open={visible}>
-    <a href="login/index.html">Login</a>
-    <a href="profile/index.html">Profile</a>
-    <a href="orders/index.html">Orders</a>
+    <a href="/login/index.html">Login</a>
+    <a href="/profile/index.html">Profile</a>
+    <a href="/orders/index.html">Orders</a>
   </nav>
 </div>
 
@@ -59,8 +59,5 @@
   .user {
     display: flex;
     align-items: flex-end;
-  }
-  span {
-    margin-right: 0.5em;
   }
 </style>

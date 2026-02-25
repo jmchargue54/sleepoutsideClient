@@ -7,4 +7,4 @@
     
     <button type="submit">Login</button>
 </form>
-<p>Not a member? <a href="register/index.html">Register here</a>.</p>
+<p>Not a member? <a href="/register/index.html">Register here</a>.</p>
