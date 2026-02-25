@@ -57,12 +57,18 @@
   </button>
   
   <nav class="user__menu" class:open={visible}>
+<<<<<<< HEAD
     {#if userStore.isLoggedIn === true}
       <a href='/'>Logout</a>
     {/if}
     <a href="/login/index.html">Login</a>
     <a href="/profile/index.html">Profile</a>
     <a href="/">Orders</a>
+=======
+    <a href="login/index.html">Login</a>
+    <a href="profile/index.html">Profile</a>
+    <a href="orders/index.html">Orders</a>
+>>>>>>> d0aa771 (adding pages to user management)
   </nav>
 </div>
 
