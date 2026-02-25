@@ -11,7 +11,7 @@ function renderCartContents() {
     if (listEl) listEl.innerHTML = '<li>Your cart is empty.</li>';
     return;
   } else {
-    // console.log(cartItems);
+    console.log(cartItems);
     const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
     if (listEl) listEl.innerHTML = htmlItems.join('');
   }
