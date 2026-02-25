@@ -48,6 +48,6 @@ export function getParam(param: string) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const value = urlParams.get(param);
-  console.log(`getParam: ${param} = ${value}`);
+  // console.log(`getParam: ${param} = ${value}`);
   return value;
 };
