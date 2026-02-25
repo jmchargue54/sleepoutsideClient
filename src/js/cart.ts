@@ -11,13 +11,11 @@ function renderCartContents() {
   if (cartItems.length === 0) {
     if (listEl) listEl.innerHTML = '<li>Your cart is empty.</li>';
     return;
+  } else {
+    console.log(cartItems);
+    const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
+    if (listEl) listEl.innerHTML = htmlItems.join('');
   }
-
-  const htmlItems = cartItems.map((item: Product) => cartItemTemplate(item));
-  if (listEl) listEl.innerHTML = htmlItems.join("");
-
-  calculateCartTotal(cartItems);
-
 }
 
 function cartItemTemplate(item: Product) {
