@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { checkAuth, userStore, logout } from "../js/auth.svelte.ts";
 
   let visible = $state(false);
 
@@ -28,6 +29,9 @@
     window.addEventListener("scroll", closeMenu);
     window.addEventListener("keydown", handleKeydown);
 
+    // setup auth
+    checkAuth();
+
     // 2. Return Cleanup Function
     // Svelte runs this function automatically when the component unmounts
     return () => {
@@ -36,9 +40,13 @@
       window.removeEventListener("keydown", handleKeydown);
     };
   });
+
 </script>
 
 <div class="user">
+  {#if userStore.isLoggedIn}
+    <p>Welcome {userStore.user?.email}!</p>
+  {/if}
   <button
     class="user__button"
     aria-label="user management"
@@ -49,9 +57,12 @@
   </button>
   
   <nav class="user__menu" class:open={visible}>
-    <a href="#">Login</a>
-    <a href="#">Profile</a>
-    <a href="#">Orders</a>
+    {#if userStore.isLoggedIn === true}
+      <a href='/'>Logout</a>
+    {/if}
+    <a href="/login/index.html">Login</a>
+    <a href="/profile/index.html">Profile</a>
+    <a href="/">Orders</a>
   </nav>
 </div>
 
@@ -59,8 +70,5 @@
   .user {
     display: flex;
     align-items: flex-end;
-  }
-  span {
-    margin-right: 0.5em;
   }
 </style>
