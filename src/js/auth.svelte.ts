@@ -38,7 +38,7 @@ export function logout() {
     userStore.user = undefined;
     userStore.token = '';
     userStore.isLoggedIn = false;
-    setLocalStorage('so-user', 'null');
+    setLocalStorage('so-user', null);
     window.location.href = '/';
 }
 
