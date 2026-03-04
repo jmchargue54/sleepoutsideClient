@@ -42,6 +42,28 @@ export function logout() {
     window.location.href = '/';
 }
 
+export async function register(name:string, email:string, password:string) {
+    const response = await fetch(`${baseURL}users/register`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, password })
+    })
+    const data = await response.json();
+
+    if(response.ok) {
+        userStore.user = data.user;
+        userStore.token = data.token;
+        userStore.isLoggedIn = true;
+        setLocalStorage('so-user', userStore);
+        return data
+    }
+    else {
+        throw new Error(data.error.message);
+    }
+}
+
 export function checkAuth() {
     const userData = getLocalStorage('so-user');
     console.log(userData);
