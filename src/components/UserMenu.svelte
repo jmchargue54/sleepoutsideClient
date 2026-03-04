@@ -58,11 +58,13 @@
   
   <nav class="user__menu" class:open={visible}>
     {#if userStore.isLoggedIn === true}
-      <a href='/'>Logout</a>
-    {/if}
+      <button onclick={logout} class="link-style-button">Logout</button>
+      <a href="/profile/index.html">Profile</a>
+      <a href="/">Orders</a>
+    {:else}
     <a href="/login/index.html">Login</a>
-    <a href="/profile/index.html">Profile</a>
-    <a href="/">Orders</a>
+    <a href="/register/index.html">Register</a>
+    {/if}
   </nav>
 </div>
 

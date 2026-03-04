@@ -1,20 +1,20 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Login from "../../components/Login.svelte";
+import Register from "../../components/Register.svelte";
 
-const title = "Login";
+const title = "Register";
 
 ---
 
 <Layout title={title}>
-    <section class="login">
-        <Login client:load/>
-        <p>Don't have an account? <a href="/register/index.html">Register</a></p>
+    <section class="register">
+        <Register client:load/>
+        <p>Already have an account? <a href="/login/index.html">Login</a></p>
     </section>
-</Layout>
+   </Layout>
 
 <style>
-    .login {
+    .register {
         display: flex;
         flex-direction: column;
         align-items: center;

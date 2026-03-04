@@ -12,7 +12,7 @@ export function getLocalStorage(key:string) {
   return JSON.parse(data);
 }
 // save data to local storage
-export function setLocalStorage(key:string, data:string | object) {
+export function setLocalStorage(key:string, data:string | object | null) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
