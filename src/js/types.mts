@@ -2,6 +2,7 @@ export interface Product {
   _id: string;
   id: string;
   isClearance: boolean;
+  quantity: number;
   category: string;
   isNew: boolean;
   url: string;
