@@ -20,5 +20,12 @@ import Footer from "../components/Footer.svelte";
     </main>
 
     <Footer />
+
+    <script type="module">
+      import { loadAlerts } from '/js/alerts.js';
+      document.addEventListener('DOMContentLoaded', () => {
+        loadAlerts();
+      });
+    </script>
   </body>
 </html>

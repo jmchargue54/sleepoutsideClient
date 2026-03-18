@@ -19,6 +19,17 @@ const product = Astro.props;
 
 const imageUrl = product.data.images.primaryLarge;
 const title = product.data.name;
+
+const listPrice = product.data.listPrice;
+const finalPrice = product.data.finalPrice ?? listPrice;
+
+const discountAmount = Math.max(0, listPrice - finalPrice);
+const discountPercent = listPrice > 0 ? Math.round((discountAmount / listPrice) * 100) : 0;
+
+const currency = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 ---
 <Layout title={title}>
   <script src="../../js/product.ts"></script>
@@ -33,7 +44,15 @@ const title = product.data.name;
         alt={product.data.name}
       />
 
-      <p class="product-card__price">${product.data.listPrice}</p>
+      <div class="product-price">
+        <p class="product-card__price">{currency.format(finalPrice)}</p>
+        {discountAmount > 0 && (
+          <div class="discount-indicator">
+            <span class="discount-badge">Save {currency.format(discountAmount)} ({discountPercent}% off)</span>
+            <span class="original-price">Was {currency.format(listPrice)}</span>
+          </div>
+        )}
+      </div>
 
       <p class="product__color">{product.data.color}</p>
 

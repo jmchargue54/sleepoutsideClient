@@ -1,4 +1,5 @@
 export async function loadAlerts() {
+  console.log('[alerts] loadAlerts running');
   try {
     const response = await fetch('/json/alerts.json');
     const alerts = await response.json();
@@ -14,6 +15,11 @@ export async function loadAlerts() {
         p.style.color = alert.color;
         alertSection.appendChild(p);
       });
+
+      // Remove fixed positioning, let it flow naturally in the page
+      alertSection.style.padding = '1em';
+      alertSection.style.textAlign = 'center';
+      alertSection.style.marginBottom = '1em';
 
       // Wait a bit for the DOM to be fully ready
       setTimeout(() => {
