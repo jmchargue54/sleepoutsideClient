@@ -2,10 +2,10 @@
     import {userStore, logout } from "../js/auth.svelte.ts";
     import { onMount } from "svelte";
     const baseURL = import.meta.env.PUBLIC_SERVER_URL;
-    let profile = $state("");
+    let profile = $state({ message: "" });
 
     async function getProfile() {
-        console.log(userStore.token);
+        // console.log(userStore.token);
         const res = await fetch(`${baseURL}users/protected`, {
         method: "GET",
         headers: {
