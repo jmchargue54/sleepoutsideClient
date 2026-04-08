@@ -1,5 +1,10 @@
 <script>
     import UserMenu from "../components/UserMenu.svelte";
+    let cartQuantity = $state(0);
+  
+    if (typeof window !== 'undefined') {
+      cartQuantity = JSON.parse(localStorage.getItem('so-cart') || '[]').length;
+    }
 </script>
 
     <header class="divider">
@@ -40,8 +45,23 @@
               <!-- <text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Natalia Woodroffe</text>
             <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
             </svg>
+            <sb class="cart-quantity">{cartQuantity}</sb>
           </a>
         </div>
       </nav>
     </header>
+
+    <style>
+      .cart-quantity {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: #ff0000;
+        color: #fff;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    </style>
     

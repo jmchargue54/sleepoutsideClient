@@ -1,5 +1,5 @@
 export async function loadAlerts() {
-  console.log('[alerts] loadAlerts running');
+  // console.log('[alerts] loadAlerts running');
   try {
     const response = await fetch('/json/alerts.json');
     const alerts = await response.json();
